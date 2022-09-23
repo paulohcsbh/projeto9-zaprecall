@@ -40,24 +40,28 @@ export default function App(){
         setLetter(underlines.slice(0,palavras[r].length))                          
     }     
 
-    function renderizar(letra){         
+    function renderizar(letra, index){         
         a = jogar.toString().replace(/[ãáâà]/gi, "a")
         a = a.replace(/[êé]/gi, "e")
         a = a.replace(/[ôó]/gi, "o")
         a = a.replace(/[í]/gi, "i")
         a = a.replace(/[ú]/gi, "u")
-        a = a.replace(/[ç]/gi, "c")        
+        a = a.replace(/[ç]/gi, "c")
+        console.log(letra)              
         
         lista = a.split("")
-        console.log()
+        console.log(a)
         let lista3 = []
+        
         if(lista.includes(letra)){
+            
             for(let i = 0; i < lista.length;i++){
                 const item = lista[i]
                 if(item === letra){
                     lista3.push(item)
                     letter.splice(i, 1, letra)
                     console.log(lista3)
+                    
                 }
             }            
             const novaLetter = [...letter]
@@ -68,17 +72,20 @@ export default function App(){
             setCor("verde")
             setAtivar(true)
             console.log(lista)
-        }             
+        } 
+
         }else{
             setContagem(contagem + 1)
             console.log(contagem)
+            
             if(contagem === 5 ){
                 setLetter(jogar)
                 setAtivar(true)
                 setLetter(lista)
                 setCor("vermelho")                
             }
-        }                  
+        }
+                   
     }
 
     function palpite(){
@@ -108,7 +115,7 @@ export default function App(){
         </div>
             <div className="jogando">
                 <div className="alfabeto" id="alfabeto" >
-                    {alfabeto.map((letra, index) => <button key={index} className="letras" disabled={ativar} onClick={() =>renderizar(letra)}>{letra.toUpperCase()} </button>)} 
+                    {alfabeto.map((letra, index) => <button key={index} className="letras" disabled={ativar} onClick={() =>renderizar(letra, index)}>{letra.toUpperCase()} </button>)} 
                 </div> 
                 <div className="chute">
                 <span>Já sei a palavra!</span><input disabled={ativar} onChange={(e)=> setTextoChute(e.target.value)} value={textoChute} type="text" /><button className="chutar" disabled={ativar} onClick={palpite}>Chutar</button>
