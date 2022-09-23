@@ -25,6 +25,7 @@ export default function App(){
     const [contagem, setContagem] = React.useState(0)
     const [cor, setCor] = React.useState("")
     const[textoChute, setTextoChute] = React.useState("")
+    const [clicados, setClicados] = React.useState([])
 
     function habilitar(){         
         setCor("")      
@@ -37,7 +38,8 @@ export default function App(){
         setJogar(lista2);
         lista = palavras[r].toString().split("") 
         setContagem(0);          
-        setLetter(underlines.slice(0,palavras[r].length))                          
+        setLetter(underlines.slice(0,palavras[r].length))  
+        setClicados([])                        
     }     
 
     function renderizar(letra, index){         
@@ -52,6 +54,10 @@ export default function App(){
         lista = a.split("")
         console.log(a)
         let lista3 = []
+        
+        const desabilitar = [...clicados, letra]
+        setClicados(desabilitar);
+        
         
         if(lista.includes(letra)){
             
@@ -115,7 +121,7 @@ export default function App(){
         </div>
             <div className="jogando">
                 <div className="alfabeto" id="alfabeto" >
-                    {alfabeto.map((letra, index) => <button key={index} className="letras" disabled={ativar} onClick={() =>renderizar(letra, index)}>{letra.toUpperCase()} </button>)} 
+                    {alfabeto.map((letra, index) => <button key={index} className="letras"  disabled={ativar === true ? true: clicados.includes(letra)? true : false} onClick={() =>renderizar(letra, index)}>{letra.toUpperCase()} </button>)} 
                 </div> 
                 <div className="chute">
                 <span>Já sei a palavra!</span><input disabled={ativar} onChange={(e)=> setTextoChute(e.target.value)} value={textoChute} type="text" /><button className="chutar" disabled={ativar} onClick={palpite}>Chutar</button>
