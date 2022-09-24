@@ -105,20 +105,20 @@ export default function App(){
        <>
         <div className="cima">
             <div className="forca">
-                <img src={images[contagem]} alt="Imagem Forca"/>
+                <img data-identifier="game-image" src={images[contagem]} alt="Imagem Forca"/>
                 <div>
-                <button className="comecar" onClick={habilitar}>Escolher Palavra</button> 
-                <div className={`gerar-palavra ${cor}`}> {letter}</div>
+                <button className="comecar" data-identifier="choose-word" onClick={habilitar}>Escolher Palavra</button> 
+                <div data-identifier="word" className={`gerar-palavra ${cor}`}> {letter}</div>
                 </div>      
             </div>            
         
         </div>
             <div className="jogando">
                 <div className="alfabeto" id="alfabeto" >
-                    {alfabeto.map((letra, index) => <button key={index} className="letras"  disabled={ativar === true ? true: clicados.includes(letra)? true : false} onClick={() =>renderizar(letra, index)}>{letra.toUpperCase()} </button>)} 
+                    {alfabeto.map((letra, index) => <button data-identifier="letter" key={index} className="letras"  disabled={ativar === true ? true: clicados.includes(letra)? true : false} onClick={() =>renderizar(letra, index)}>{letra.toUpperCase()} </button>)} 
                 </div> 
                 <div className="chute">
-                <span>Já sei a palavra!</span><input disabled={ativar} onChange={(e)=> setTextoChute(e.target.value)} value={textoChute} type="text" /><button className="chutar" disabled={ativar} onClick={palpite}>Chutar</button>
+                <span>Já sei a palavra!</span><input data-identifier="type-guess" disabled={ativar} onChange={(e)=> setTextoChute(e.target.value)} value={textoChute} type="text" /><button data-identifier="guess-button" className="chutar" disabled={ativar} onClick={palpite}>Chutar</button>
             </div>              
           </div>
         </>        
