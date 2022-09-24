@@ -33,7 +33,7 @@ export default function App(){
         setAtivar(false);  
         let r = Math.random() * ((palavras.length-1) - 0 + 1);
         r = parseInt(r);  
-        console.log(palavras[r]) 
+        
         lista2.push(palavras[r])
         setJogar(lista2);
         lista = palavras[r].toString().split("") 
@@ -49,10 +49,9 @@ export default function App(){
         a = a.replace(/[í]/gi, "i")
         a = a.replace(/[ú]/gi, "u")
         a = a.replace(/[ç]/gi, "c")
-        console.log(letra)              
+        
         
         lista = a.split("")
-        console.log(a)
         let lista3 = []
         
         const desabilitar = [...clicados, letra]
@@ -66,8 +65,6 @@ export default function App(){
                 if(item === letra){
                     lista3.push(item)
                     letter.splice(i, 1, letra)
-                    console.log(lista3)
-                    
                 }
             }            
             const novaLetter = [...letter]
@@ -77,13 +74,10 @@ export default function App(){
             setLetter(jogar)
             setCor("verde")
             setAtivar(true)
-            console.log(lista)
         } 
 
         }else{
             setContagem(contagem + 1)
-            console.log(contagem)
-            
             if(contagem === 5 ){
                 setLetter(jogar)
                 setAtivar(true)
