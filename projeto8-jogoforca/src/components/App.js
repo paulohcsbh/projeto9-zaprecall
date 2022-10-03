@@ -32,8 +32,7 @@ export default function App(){
         setTextoChute("")
         setAtivar(false);  
         let r = Math.random() * ((palavras.length-1) - 0 + 1);
-        r = parseInt(r);  
-        
+        r = parseInt(r);          
         lista2.push(palavras[r])
         setJogar(lista2);
         lista = palavras[r].toString().split("") 
@@ -48,8 +47,7 @@ export default function App(){
         a = a.replace(/[ôó]/gi, "o")
         a = a.replace(/[í]/gi, "i")
         a = a.replace(/[ú]/gi, "u")
-        a = a.replace(/[ç]/gi, "c")
-        
+        a = a.replace(/[ç]/gi, "c")        
         
         lista = a.split("")
         let lista3 = []
@@ -110,17 +108,17 @@ export default function App(){
                 <button className="comecar" data-identifier="choose-word" onClick={habilitar}>Escolher Palavra</button> 
                 <div data-identifier="word" className={`gerar-palavra ${cor}`}> {letter}</div>
                 </div>      
-            </div>            
-        
+            </div>       
         </div>
-            <div className="jogando">
+
+        <div className="jogando">
                 <div className="alfabeto" id="alfabeto" >
                     {alfabeto.map((letra, index) => <button data-identifier="letter" key={index} className="letras"  disabled={ativar === true ? true: clicados.includes(letra)? true : false} onClick={() =>renderizar(letra, index)}>{letra.toUpperCase()} </button>)} 
                 </div> 
                 <div className="chute">
                 <span>Já sei a palavra!</span><input data-identifier="type-guess" disabled={ativar} onChange={(e)=> setTextoChute(e.target.value)} value={textoChute} type="text" /><button data-identifier="guess-button" className="chutar" disabled={ativar} onClick={palpite}>Chutar</button>
             </div>              
-          </div>
+        </div>
         </>        
     )
 }
