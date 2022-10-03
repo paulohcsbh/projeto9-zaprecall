@@ -1,16 +1,16 @@
 import styled from "styled-components"
 export default function Answer(props) {
     const { deck, viraResposta, setViraPergunta, setViraResposta,
-        setZap, setContador, contador, setDesabilita } = props
+        setZap, setContador, contador,  } = props
     let layout = []
     for (let i = 0; i < deck.length; i++) {
         layout.push(
             <Resposta sumido={viraResposta} key={i}>
-                <Solucao>{deck}</Solucao>
+                <Solucao data-identifier="flashcard-answer">{deck}</Solucao>
                 <Container>
-                    <Botao onClick={zapRecallDois}>Não lembrei</Botao>
-                    <Botao onClick={zapRecallUm}>Quase não lembrei</Botao>
-                    <Botao onClick={zapRecall}>Zap!</Botao>
+                    <Botao data-identifier="forgot-btn" onClick={zapRecallDois}>Não lembrei</Botao>
+                    <Botao data-identifier="almost-forgot-btn" onClick={zapRecallUm}>Quase não lembrei</Botao>
+                    <Botao data-identifier="zap-btn" onClick={zapRecall}>Zap!</Botao>
                 </Container>
             </Resposta>
             )
@@ -21,7 +21,7 @@ export default function Answer(props) {
         setViraPergunta(true)
         setViraResposta(true)
         setContador(contador + 1)
-        setDesabilita(true)
+        
 
     }
     function zapRecallUm() {
@@ -29,14 +29,14 @@ export default function Answer(props) {
         setViraPergunta(true)
         setViraResposta(true)
         setContador(contador + 1)
-        setDesabilita(true)
+        
     }
     function zapRecallDois() {
         setZap(2)
         setViraPergunta(true)
         setViraResposta(true)
         setContador(contador + 1)
-        setDesabilita(true)
+        
     }
     return (
         <>

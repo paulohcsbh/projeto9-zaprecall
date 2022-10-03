@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Perguntas from "./Perguntas"
-import Buttons from "./Buttons"
+import Rodape from "./Rodape"
 import styled from "styled-components"
 import logo from "./img/logo.png"
 
@@ -14,7 +14,7 @@ export default function TelaPrincipal({deck}) {
                 <Nome>ZapRecall</Nome>
             </ContainerTopo>
             <Perguntas deck={deck} contador={contador} setContador={setContador}/>
-            <Buttons deck={deck} contador={contador}/>
+            <Rodape deck={deck} contador={contador}/>
         </Container>
     )
 }

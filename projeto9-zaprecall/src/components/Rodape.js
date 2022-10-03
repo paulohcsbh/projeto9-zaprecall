@@ -1,9 +1,9 @@
 import styled from "styled-components"
-export default function Buttons(props){
+export default function Rodape(props){
 const {deck, contador} = props
     return(
         <ContainerButton>            
-            <Concluidos>{contador}/{deck.length} CONCLUÍDOS</Concluidos>
+            <Concluidos data-identifier="flashcard-counter">{contador}/{deck.length} CONCLUÍDOS</Concluidos>
         </ContainerButton>
     )
 }

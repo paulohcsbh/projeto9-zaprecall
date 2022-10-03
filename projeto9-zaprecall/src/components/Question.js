@@ -6,8 +6,8 @@ export default function Question(props){
     for (let i = 0; i < deck.length; i++) {
         layout.push(
             <Pergunta sumido={viraPergunta} key={i}>
-                <Questao>{deck}</Questao>
-                <Botao src={setinha} onClick={() =>respostaVirada()}></Botao>
+                <Questao data-identifier="flashcard-question">{deck}</Questao>
+                <Botao data-identifier="flashcard-turn-btn" src={setinha} onClick={() =>respostaVirada()}></Botao>
             </Pergunta>)
     }
 
